@@ -5,8 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/power-defense/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Power Defense</title>
-    <script type="module" crossorigin src="/power-defense/assets/index-Cwq6ohnJ.js"></script>
-    <link rel="stylesheet" crossorigin href="/power-defense/assets/index-Dd1IUcAt.css">
+    <script>
+      (() => {
+        const param = new URLSearchParams(window.location.search).get("scoutTheme");
+        const theme =
+          param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <script type="module" crossorigin src="/power-defense/assets/index-BspdNZd5.js"></script>
+    <link rel="stylesheet" crossorigin href="/power-defense/assets/index-OFxIQB6I.css">
   </head>
   <body>
     <div id="root"></div>
