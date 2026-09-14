@@ -12,9 +12,25 @@
           param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
         document.documentElement.setAttribute("data-theme", theme);
       })();
+      // Restore the player's choice before first paint unless this link overrides it.
+      (() => {
+        const param = new URLSearchParams(window.location.search).get("scoutTheme");
+        if (param === "light" || param === "dark") return;
+        let saved = null;
+        try {
+          saved = window.localStorage.getItem("ogtd-ui-theme");
+        } catch (error) {
+          console.warn("Unable to read the interface appearance preference.", error);
+        }
+        const theme =
+          saved === "light" || saved === "dark"
+            ? saved
+            : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
     </script>
-    <script type="module" crossorigin src="/power-defense/assets/index-BspdNZd5.js"></script>
-    <link rel="stylesheet" crossorigin href="/power-defense/assets/index-OFxIQB6I.css">
+    <script type="module" crossorigin src="/power-defense/assets/index-DIpwz7XT.js"></script>
+    <link rel="stylesheet" crossorigin href="/power-defense/assets/index-DqI_Yz1f.css">
   </head>
   <body>
     <div id="root"></div>
